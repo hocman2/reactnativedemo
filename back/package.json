@@ -1,0 +1,32 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "start": "tsc && node --env-file=.env dist/index.js",
+    "init-db": "tsc && node --env-file=.env dist/initDb.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express-ws": "^3.0.5",
+    "@types/uuid": "^10.0.0",
+    "common": "file:../common",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-ws": "^5.0.2",
+    "hash-wasm": "^4.11.0",
+    "knex": "^3.1.0",
+    "multer": "^1.4.5-lts.1",
+    "node-sqlite3-wasm": "^0.8.23",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.7.4"
+  }
+}

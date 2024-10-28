@@ -1,0 +1,65 @@
+{
+	"chats": [
+		{
+			"id": 1,
+			"offer": 1,
+			"otherUser": 5,
+			"messages": [
+				{
+					"seq": 1,
+					"author": 5,
+					"content": "bonjour, cet article est-il toujours disponible??????",
+				},
+				{
+					"seq": 2,
+					"author": 1,
+					"content": "non",
+				},
+				{
+					"seq": 3,
+					"author": 5,
+					"content": "d'accord connard"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"offer": 2,
+			"otherUser": 5,
+			"messages": [
+				{
+					"seq": 1,
+					"author": 5,
+					"content": "bonjour, cet article est-il toujours disponible??????",
+				},
+				{
+					"seq": 2,
+					"author": 2,
+					"content": "oui",
+				},
+				{
+					"seq": 3,
+					"author": 5,
+					"content": "genial!"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"offer": 3,
+			"otherUser": 5,
+			"messages": [
+				{
+					"seq": 1,
+					"author": 5,
+					"content": "bonjour, cet article est-il toujours disponible??????",
+				},
+				{
+					"seq": 2,
+					"author": 5,
+					"content": "repondez ?",
+				},
+			]
+		},
+	]
+}

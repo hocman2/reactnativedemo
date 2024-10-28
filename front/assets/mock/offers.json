@@ -1,0 +1,32 @@
+{
+	"offers": [
+		{
+			"id": 1,
+			"title": "Macbook Air 2020",
+			"image": "https://preview.redd.it/klho2y2vh1nb1.jpg?auto=webp&s=109ba37071a11a444bca89549bf3c08eb6ec2054",
+			"description": "Je revends mon macbook air 2020",
+			"author": 1, 
+		},	
+		{
+			"id": 2,
+			"title": "Pipi au lit",
+			"image": "http://localhost:8081/assets/images/cat1.jpeg",
+			"description": "prout",
+			"author": 2, 
+		},
+		{
+			"id": 3,
+			"title": "Bonjour bonsoir",
+			"image": "http://localhost:8081/assets/images/cat2.jpeg",
+			"description": "C'est kenshin9977",
+			"author": 3, 
+		},
+		{
+			"id": 4,
+			"title": "non",
+			"image": "http://localhost:8081/assets/images/cat3.jpeg",
+			"description": "oui",
+			"author": 4, 
+		}
+	]
+}
