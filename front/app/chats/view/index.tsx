@@ -1,11 +1,11 @@
 import { DATA_SERVER_URL } from "@/consts"
 import { useSessionInfo } from "@/hooks/useSessionInfo"
-import { createChat, pushMessage } from "@/states/chats"
+import { createChat } from "@/states/chats"
 import { sessionId, user } from "@/states/user"
 import { ChatProps, MessageProps } from "@/types/chatProps"
 import { UserProps } from "@/types/userProps"
 import { router, useLocalSearchParams } from "expo-router"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { FlatList, StyleSheet } from "react-native"
 import {Layout, Text, Input, Button} from "@ui-kitten/components" 
 import {Authorization, MessageReceived, SendMessage, WebSocketMessage} from "common/dist/chatWsMessages"
@@ -85,27 +85,21 @@ export default function SingleChatView() {
 				throw new Error(await r.text());
 			}
 
-			setWs(new WebSocket(DATA_SERVER_URL + `startChat?chatId=${chatId}`));
+			const ws = new WebSocket(DATA_SERVER_URL + `startChat?chatId=${chatId}`);
+			setWs(ws);
+			
+			ws.addEventListener("open",() => {
+				console.log("Auth ok!");
+				ws!.send(JSON.stringify({type: "Authorization", sid: sessionId! } satisfies Authorization))
+			});
 		}
 
 		setIsLoading(false);
 	});
 
 	useEffect(() => {
-		if (chat) {
-			setInterlocutor(findInterlocutor(chat, user!));
-		}
-
-	}, [chat]);
-
-	useEffect(() => {
-		if (!ws) {
+		if (!ws)
 			return;
-		}
-
-		ws.addEventListener("open",() => {
-			ws!.send(JSON.stringify({type: "Authorization", sid: sessionId! } satisfies Authorization))
-		});
 
 		ws.addEventListener("message", (evt: MessageEvent<any>) => {
 			const data: WebSocketMessage = JSON.parse(evt.data);
@@ -122,6 +116,13 @@ export default function SingleChatView() {
 			}
 		});
 	}, [ws]);
+
+	useEffect(() => {
+		if (chat) {
+			setInterlocutor(findInterlocutor(chat, user!));
+		}
+
+	}, [chat]);
 
 	function receiveMessage(payload: MessageReceived) {
 		chat?.messages.push({
